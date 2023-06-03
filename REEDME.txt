@@ -1,0 +1,25 @@
+1- You need to install script-server on your NAS
+2- add sleep.py and shutdown.py to NAS Path
+3- Create a costum script for both sleep and shutdown in script-server using this code:
+```
+#!/bin/sh
+NAME=scriptserver
+APKG_PATH=/usr/local/AppCentral/${NAME}
+FOLDER="${APKG_PATH}/script-server"
+MY_DATA=${APKG_PATH}/my_data
+HTPASSWD_FOLDER=${APKG_PATH}/my_data
+JSON_ADMIN=${MY_DATA}/runners
+FOLDER_TO_LINK=""
+TEMP_INSTALL=${APKG_PATH}/temp_install
+BLUE="\033[0;36m"
+NC="\033[0m"
+RED="\033[0;31m"
+PROG=${MY_DATA}/htpasswd
+
+python3 "/volume1/home/Badr Karrachai/Badr Karrachai/Coding/ShutdownPc/sleep.py" or shutdown.py
+
+```
+4- You need to make a server side run with windows startUp by adding a new regestry "String Value" in the following directory
+"Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" That has the path of the shutdown.vbs
+somthing like this:
+C:\Users\Badrk\Documents\shutdownpy\shutdownpy.vbs

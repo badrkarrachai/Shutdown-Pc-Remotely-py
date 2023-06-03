@@ -1,0 +1,1 @@
+CreateObject("Wscript.Shell").Run "C:\Users\Badrk\Documents\shutdownpy\shutdownpy.bat",0,True
