@@ -1,5 +1,7 @@
 1- You need to install script-server on your NAS
+
 2- add sleep.py and shutdown.py to NAS Path
+
 3- Create a costum script for both sleep and shutdown in script-server using this code:
 ```
 #!/bin/sh
@@ -19,7 +21,12 @@ PROG=${MY_DATA}/htpasswd
 python3 "/volume1/home/Badr Karrachai/Badr Karrachai/Coding/ShutdownPc/sleep.py" or shutdown.py
 
 ```
-4- You need to make a server side run with windows startUp by adding a new regestry "String Value" in the following directory
+4- you need to turn hibernation off:
+Powercfg -H OFF
+To turn hibernation mode back on:
+Powercfg -H ON
+
+5- You need to make a server side run with windows startUp by adding a new regestry "String Value" in the following directory
 "Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" That has the path of the shutdown.vbs
 somthing like this:
 C:\Users\Badrk\Documents\shutdownpy\shutdownpy.vbs
